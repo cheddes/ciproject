@@ -13,14 +13,15 @@
  |  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  |  See the License for the specific language governing permissions and
  |  limitations under the License.
---><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hcl.dccs.aem.demo</groupId>
 	<artifactId>aemdemo</artifactId>
 	<packaging>pom</packaging>
 	<version>0.0.5-SNAPSHOT</version>
 	<description>AEMDemo</description>
-    
+
 	<modules>
 		<module>core</module>
 		<module>ui.apps</module>
@@ -28,7 +29,13 @@
 		<module>it.tests</module>
 		<module>it.launcher</module>
 	</modules>
-<!--
+	<scm>
+		<url>https://github.com/cheddes/ciproject</url>
+		<connection>scm:git:https://github.com/cheddes/ciproject.git</connection>
+		<developerConnection>scm:git:https://github.com/cheddes/ciproject.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+	<!--
 	<properties>
 		<aem.host>localhost</aem.host>
 		<aem.port>4502</aem.port>
@@ -157,8 +164,8 @@
 						</execution>
 					</executions>
 					<configuration>
-			                   <outputDirectory>${project.build.directory}/classes</outputDirectory>
-			        </configuration>
+						<outputDirectory>${project.build.directory}/classes</outputDirectory>
+					</configuration>
 					<dependencies>
 						<dependency>
 							<groupId>org.slf4j</groupId>
@@ -237,54 +244,54 @@
 		</pluginManagement>
 	</build>
 
-    <profiles>
-        <!-- ====================================================== -->
-        <!-- A D O B E   P U B L I C   P R O F I L E                -->
-        <!-- ====================================================== -->
-        <profile>
-            <id>adobe-public</id>
+	<profiles>
+		<!-- ====================================================== -->
+		<!-- A D O B E   P U B L I C   P R O F I L E                -->
+		<!-- ====================================================== -->
+		<profile>
+			<id>adobe-public</id>
 
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 
-            <properties>
-                <releaseRepository-Id>adobe-public-releases</releaseRepository-Id>
-                <releaseRepository-Name>Adobe Public Releases</releaseRepository-Name>
-                <releaseRepository-URL>http://repo.adobe.com/nexus/content/groups/public</releaseRepository-URL>
-            </properties>
+			<properties>
+				<releaseRepository-Id>adobe-public-releases</releaseRepository-Id>
+				<releaseRepository-Name>Adobe Public Releases</releaseRepository-Name>
+				<releaseRepository-URL>http://repo.adobe.com/nexus/content/groups/public</releaseRepository-URL>
+			</properties>
 
-            <repositories>
-                <repository>
-                    <id>adobe-public-releases</id>
-                    <name>Adobe Public Repository</name>
-                    <url>http://repo.adobe.com/nexus/content/groups/public</url>
-                    <releases>
-                        <enabled>true</enabled>
-                        <updatePolicy>never</updatePolicy>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
+			<repositories>
+				<repository>
+					<id>adobe-public-releases</id>
+					<name>Adobe Public Repository</name>
+					<url>http://repo.adobe.com/nexus/content/groups/public</url>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
 
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>adobe-public-releases</id>
-                    <name>Adobe Public Repository</name>
-                    <url>http://repo.adobe.com/nexus/content/groups/public</url>
-                    <releases>
-                        <enabled>true</enabled>
-                        <updatePolicy>never</updatePolicy>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </pluginRepository>
-            </pluginRepositories>
-        </profile>
-    </profiles>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>adobe-public-releases</id>
+					<name>Adobe Public Repository</name>
+					<url>http://repo.adobe.com/nexus/content/groups/public</url>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
 
 
 	<!-- ====================================================================== -->
@@ -306,10 +313,10 @@
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
-        <groupId>biz.aQute</groupId>
-        <artifactId>bndlib</artifactId>
-        <version>1.50.0</version>
-        <scope>provided</scope>
+				<groupId>biz.aQute</groupId>
+				<artifactId>bndlib</artifactId>
+				<version>1.50.0</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.osgi</groupId>
@@ -331,12 +338,12 @@
 				<scope>provided</scope>
 			</dependency>
 			<!-- Apache Sling Dependencies -->
-	        <dependency>
-	            <groupId>com.adobe.aem</groupId>
-	            <artifactId>aem-api</artifactId>
-	            <version>6.0.0.1</version>
-	            <scope>provided</scope>
-	        </dependency>
+			<dependency>
+				<groupId>com.adobe.aem</groupId>
+				<artifactId>aem-api</artifactId>
+				<version>6.0.0.1</version>
+				<scope>provided</scope>
+			</dependency>
 			<!-- Servlet API -->
 			<dependency>
 				<groupId>javax.servlet</groupId>
@@ -384,5 +391,16 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<name>nexus releases</name>
+			<url>http://localhost:8081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus</id>
+			<name>nexus snapshots</name>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>	
+	</distributionManagement>
 </project>
