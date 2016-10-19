@@ -27,6 +27,11 @@
 	<description>Core bundle for AEMDemo</description>
 	<build>
 		<plugins>
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.1.1</version>
+      </plugin>		
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-scr-plugin</artifactId>
@@ -160,4 +165,8 @@
             <artifactId>junit-addons</artifactId>
         </dependency>
 	</dependencies>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <sonar.language>java</sonar.language>
+  </properties>	
 </project>
