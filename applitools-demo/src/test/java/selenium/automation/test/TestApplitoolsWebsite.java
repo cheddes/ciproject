@@ -1,28 +1,24 @@
 package selenium.automation.test;
 
-
 import com.applitools.eyes.Eyes;
 import com.applitools.eyes.RectangleSize;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.firefox.FirefoxDriver;
 import java.net.URISyntaxException;
 
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
 import org.junit.*;
-//import static org.junit.Assert.*;
-//import static org.hamcrest.CoreMatchers.*;
-//import org.openqa.selenium.*;
-//import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class TestApplitoolsWebsite {
 
 	@Test
 	 public void validateHomePage() throws Exception, URISyntaxException, InterruptedException {
-
-        WebDriver driver =  new ChromeDriver();
-
+		DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
+		WebDriver driver = new PhantomJSDriver(capabilities);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         Eyes eyes = new Eyes();
         // This is your api key, make sure you use it in all your tests.
         eyes.setApiKey("PIna1011025IwV0lMdMhoqHLoGwSEHncSPAEmfltgFpz9Fg110");
@@ -40,9 +36,9 @@ public class TestApplitoolsWebsite {
             driver.findElement(By.cssSelector("button.coral-Button.coral-Button--primary")).click();
             // Visual validation point #1
             eyes.checkWindow("English Page");
-            driver.findElement(By.linkText("Français")).click();
+            driver.findElement(By.linkText("FranÃ§ais")).click();
             // Visual validation point #2
-            eyes.checkWindow("Français page");
+            eyes.checkWindow("FranÃ§ais page");
 
             // End visual testing. Validate visual correctness.
             eyes.close();
